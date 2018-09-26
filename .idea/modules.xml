@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RateMeWebservices_MS.iml" filepath="$PROJECT_DIR$/RateMeWebservices_MS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MsMail_Webservice.iml" filepath="$PROJECT_DIR$/MsMail_Webservice.iml" />
     </modules>
   </component>
 </project>
