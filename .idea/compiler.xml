@@ -16,10 +16,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="MsMail_Webservice" />
         <module name="RateMeWebservices_MS" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="MsMail_Webservice" target="1.5" />
       <module name="RateMeWebservices_MS" target="1.5" />
     </bytecodeTargetLevel>
   </component>

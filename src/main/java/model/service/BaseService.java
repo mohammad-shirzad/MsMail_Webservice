@@ -3,7 +3,7 @@ package model.service;
 import java.util.List;
 
 public interface BaseService<T> {
-    void saveEntity(T t);
+    int saveEntity(T t);
 
     List<T> getAll();
 

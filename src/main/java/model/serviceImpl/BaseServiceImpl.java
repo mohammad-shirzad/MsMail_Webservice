@@ -19,8 +19,8 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 
     public abstract BaseDao getDao();
 
-    public void saveEntity(T t) {
-        baseDao.save(t);
+    public int saveEntity(T t) {
+        return baseDao.save(t);
     }
 
     public List getAll() {
