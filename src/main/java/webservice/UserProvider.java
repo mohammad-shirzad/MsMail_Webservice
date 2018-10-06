@@ -1,15 +1,12 @@
 package webservice;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import model.entity.User;
 import model.service.UserService;
-import org.json.JSONString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.io.IOException;
 
 @RestController
 @RequestMapping(value = "/user")
@@ -19,12 +16,13 @@ public class UserProvider {
     UserService userService;
 
     @RequestMapping(value = "/save_user")
-    public int saveUser(@RequestParam(name = "user") String string) {
+    public int saveUser(@RequestParam(name = "user") String json) {
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            User user = mapper.readValue(string, User.class);
+            Gson gson = new Gson();
+
+            User user = gson.fromJson(json, User.class);
             return userService.saveEntity(user);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return -1;

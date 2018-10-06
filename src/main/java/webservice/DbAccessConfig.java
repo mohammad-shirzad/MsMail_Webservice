@@ -24,9 +24,8 @@ public class DbAccessConfig {
 
     @Bean
     public LocalSessionFactoryBean getLocalSessionFactoryBean() {
-        LocalSessionFactoryBean bean = null;
+        LocalSessionFactoryBean bean = new LocalSessionFactoryBean();
         try {
-            bean = new LocalSessionFactoryBean();
             bean.setPackagesToScan("model", "webservice");
             bean.setDataSource(getDataSource());
             bean.setHibernateProperties(getHibernateProperties());
