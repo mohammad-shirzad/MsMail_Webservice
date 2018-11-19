@@ -1,13 +1,12 @@
 package webservice;
 
-import com.google.gson.Gson;
-import model.entity.User;
-import model.service.UserService;
+import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import service.UserService;
 
 @RestController
 @RequestMapping(value = "/user")
@@ -16,15 +15,18 @@ public class UserProvider {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/save_user", method = RequestMethod.POST)
-    public int saveUser(@RequestParam(name = "user") String json) {
+    @RequestMapping(value = "/save_new_user", method = RequestMethod.POST)
+    public User saveUser(@RequestBody User user) {
         try {
-            Gson gson = new Gson();
-            User user = gson.fromJson(json, User.class);
-            return userService.saveEntity(user);
+            if (userService.findUserByEmail(user.getEmail())) {
+                return null;
+            } else {
+                return userService.saveNewUser(user);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return -1;
+        return null;
     }
 }

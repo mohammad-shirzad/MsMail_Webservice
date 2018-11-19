@@ -1,4 +1,4 @@
-package model.entity;
+package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,21 +8,21 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     @Id
-    @Column(name = "Id", nullable = false)
+    @Column(name = "ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int id;
 
-    @Column(name = "Email", length = 50)
+    @Column(name = "EMAIL", length = 50)
     private String email;
 
-    @Column(name = "Password", length = 20)
+    @Column(name = "PASSWORD", length = 50)
     private String password;
 
-    @Column(name = "FirstName", length = 20)
+    @Column(name = "FIRST_NAME", length = 20)
     private String firstName;
 
-    @Column(name = "LastName", length = 20)
+    @Column(name = "LAST_NAME", length = 20)
     private String lastName;
 
     public int getId() {

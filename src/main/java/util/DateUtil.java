@@ -1,11 +1,17 @@
 package util;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class DateUtil {
-    static long current = System.currentTimeMillis();
+    private static Timestamp current;
 
-    public static Date getCurrentDateTime() {
-        return new Date(current);
+    private DateUtil() {
+    }
+
+    public static Timestamp getCurrentDateTime() {
+        if (current == null) {
+            current = new Timestamp(System.currentTimeMillis());
+        }
+        return current;
     }
 }
